@@ -17,6 +17,7 @@ public class ConversationManager : MonoBehaviour
 
     private PlayerMovement playerMovement;
     private DialogueInitializer dialogueInitializer;
+    private Conversation lastConversation;
 
     void Awake()
     {
@@ -71,6 +72,7 @@ public class ConversationManager : MonoBehaviour
             talkItem4.gameObject.SetActive(false);
         }
 
+        lastConversation = conversation;
         //Cursor.lockState = CursorLockMode.None;
     }
 
@@ -85,6 +87,11 @@ public class ConversationManager : MonoBehaviour
     public void TriggerDialogue(TextMeshProUGUI text)
     {
         EndConversation(); 
-        dialogueInitializer.TriggerDialogue(text.text);
+        dialogueInitializer.TriggerDialogue(text.text, true);
+    }
+
+    public void ReturnToConversation()
+    {
+        StartConversation(lastConversation);
     }
 }

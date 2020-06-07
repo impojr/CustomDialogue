@@ -14,10 +14,13 @@ public class DialogueManager : MonoBehaviour
     public Queue<Dialogue> sentences;
 
     private PlayerMovement playerMovement;
+    private ConversationManager conversationManager;
+    private bool returnToConversation;
 
     void Awake()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
+        conversationManager = FindObjectOfType<ConversationManager>();
     }
 
     void Start()
@@ -26,8 +29,9 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<Dialogue>();
     }
 
-    internal void StartDialogue(Dialogue[] dialogues)
+    internal void StartDialogue(Dialogue[] dialogues, bool returnToConversation)
     {
+        this.returnToConversation = returnToConversation;
         playerMovement.canMove = false;
         animator.SetBool("IsOpen", true);
         //Cursor.lockState = CursorLockMode.None;
@@ -46,6 +50,10 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0)
         {
             EndDialogue();
+            if (returnToConversation)
+            {
+                conversationManager.ReturnToConversation();
+            }
             return;
         }
 

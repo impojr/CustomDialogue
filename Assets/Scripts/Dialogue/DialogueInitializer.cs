@@ -55,10 +55,10 @@ public class DialogueInitializer : MonoBehaviour
         dialogues.Add(DialogueKeys.SHOW_ID_TO_GUARD, dialogue2);
     }
 
-    public void TriggerDialogue(string key)
+    public void TriggerDialogue(string key, bool returnToConversation)
     {
         Dialogue[] dialogue = dialogues[key];
 
-        dialogueManager.StartDialogue(dialogue);
+        dialogueManager.StartDialogue(dialogue, returnToConversation);
     }
 }
