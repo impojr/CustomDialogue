@@ -40,32 +40,48 @@ public class ConversationManager : MonoBehaviour
         speaker.sprite = conversation.sprite;
         canvasOpen = true;
 
-        talkItem1.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox1;
+        talkItem1.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox1.text;
+        if (conversation.textbox1.visited)
+        {
+            talkItem1.GetComponent<Image>().color = Color.grey;
+        }
 
-        if (conversation.textbox2 != "")
+        if (conversation.textbox2 != null)
         {
             talkItem2.gameObject.SetActive(true);
-            talkItem2.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox2;
+            talkItem2.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox2.text;
+            if (conversation.textbox2.visited)
+            {
+                talkItem2.GetComponent<Image>().color = Color.grey;
+            }
         }
         else
         {
             talkItem2.gameObject.SetActive(false);
         }
 
-        if (conversation.textbox3 != "")
+        if (conversation.textbox3 != null)
         {
             talkItem3.gameObject.SetActive(true);
-            talkItem3.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox3;
+            talkItem3.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox3.text;
+            if (conversation.textbox3.visited)
+            {
+                talkItem3.GetComponent<Image>().color = Color.grey;
+            }
         }
         else
         {
             talkItem3.gameObject.SetActive(false);
         }
 
-        if (conversation.textbox4 != "")
+        if (conversation.textbox4 != null)
         {
             talkItem4.gameObject.SetActive(true);
-            talkItem4.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox4;
+            talkItem4.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox4.text;
+            if (conversation.textbox4.visited)
+            {
+                talkItem4.GetComponent<Image>().color = Color.grey;
+            }
         }
         else
         {
@@ -86,7 +102,8 @@ public class ConversationManager : MonoBehaviour
 
     public void TriggerDialogue(TextMeshProUGUI text)
     {
-        EndConversation(); 
+        EndConversation();
+        lastConversation.SetAsVisited(text.text);
         dialogueInitializer.TriggerDialogue(text.text, true);
     }
 
