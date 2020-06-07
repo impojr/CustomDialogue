@@ -32,39 +32,39 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
-    public void StartConversation(Sprite sprite, string button1Text, string button2Text = null, string button3Text = null, string button4Text = null)
+    public void StartConversation(Conversation conversation)
     {
         playerMovement.canMove = false;
         animator.SetBool("IsOpen", true);
-        speaker.sprite = sprite;
+        speaker.sprite = conversation.sprite;
         canvasOpen = true;
 
-        talkItem1.GetComponentInChildren<TextMeshProUGUI>().text = button1Text;
+        talkItem1.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox1;
 
-        if (button2Text != null)
+        if (conversation.textbox2 != "")
         {
             talkItem2.gameObject.SetActive(true);
-            talkItem2.GetComponentInChildren<TextMeshProUGUI>().text = button2Text;
+            talkItem2.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox2;
         }
         else
         {
             talkItem2.gameObject.SetActive(false);
         }
 
-        if (button3Text != null)
+        if (conversation.textbox3 != "")
         {
             talkItem3.gameObject.SetActive(true);
-            talkItem3.GetComponentInChildren<TextMeshProUGUI>().text = button3Text;
+            talkItem3.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox3;
         }
         else
         {
             talkItem3.gameObject.SetActive(false);
         }
 
-        if (button4Text != null)
+        if (conversation.textbox4 != "")
         {
             talkItem4.gameObject.SetActive(true);
-            talkItem4.GetComponentInChildren<TextMeshProUGUI>().text = button4Text;
+            talkItem4.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox4;
         }
         else
         {
@@ -84,7 +84,7 @@ public class ConversationManager : MonoBehaviour
 
     public void TriggerDialogue(TextMeshProUGUI text)
     {
-        EndConversation();
+        EndConversation(); 
         dialogueInitializer.TriggerDialogue(text.text);
     }
 }

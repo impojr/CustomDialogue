@@ -16,7 +16,7 @@ public class ConversationInitializer : MonoBehaviour
     {
         if (actor.name == "Guard")
         {
-            conversationManager.StartConversation(null, DialogueKeys.SHOW_ID_TO_GUARD);
+            conversationManager.StartConversation(ConversationList.BLOCKING_GUARD);
         }
     }
 }
