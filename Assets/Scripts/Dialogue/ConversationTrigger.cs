@@ -5,18 +5,20 @@ using UnityEngine;
 public class ConversationTrigger : MonoBehaviour
 {
     private bool startConversation = false;
+    private Actor conversationWith;
 
-    private ConversationManager conversationManager;
+    private ConversationInitializer conversationInitializer;
 
     void Awake()
     {
-        conversationManager = FindObjectOfType<ConversationManager>();
+        conversationInitializer = FindObjectOfType<ConversationInitializer>();
+        conversationWith = null;
     }
 
     void Update()
     {
         if (startConversation && Input.GetKeyDown(KeyCode.Space)) {
-            conversationManager.StartConversation();
+            conversationInitializer.TriggerConversation(conversationWith);
         }
     }
 
@@ -26,6 +28,7 @@ public class ConversationTrigger : MonoBehaviour
         if (other.tag == "NPC")
         {
             startConversation = true;
+            conversationWith = other.gameObject.GetComponent<Actor>();
         }
     }
 
@@ -34,6 +37,7 @@ public class ConversationTrigger : MonoBehaviour
         if (other.tag == "NPC")
         {
             startConversation = false;
+            conversationWith = null;
         }
     }
 }
