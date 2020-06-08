@@ -16,7 +16,7 @@ public class DialogueInitializer : MonoBehaviour
 
     public void TriggerDialogue(string key, bool returnToConversation)
     {
-        Dialogue[] dialogue = DialogueList.dialogues[key];
+        Dialogue dialogue = DialogueList.dialogues[key];
 
         dialogueManager.StartDialogue(dialogue, returnToConversation);
     }
@@ -27,7 +27,13 @@ public class DialogueInitializer : MonoBehaviour
         {
             if (actor == Actor.BLOCKING_GUARD)
             {
-                TriggerDialogue(DialogueKeys.SHOWING_ID_TO_GUARD, true);
+                if (Flags.SHOWN_GUARD_ID)
+                {
+                    TriggerDialogue(DialogueKeys.SHOWN_ID_TO_GUARD, true);
+                } else
+                {
+                    TriggerDialogue(DialogueKeys.SHOWING_ID_TO_GUARD, true);
+                }
             }
         }
     }

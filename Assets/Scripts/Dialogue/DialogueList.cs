@@ -4,27 +4,45 @@ using UnityEngine;
 
 public static class DialogueList
 {
-    public static Dictionary<string, Dialogue[]> dialogues;
+    public static Dictionary<string, Dialogue> dialogues;
 
     public static void InitializeDialogueDictionary()
     {
-        dialogues = new Dictionary<string, Dialogue[]>();
+        dialogues = new Dictionary<string, Dialogue>();
 
-        Dialogue[] dialogue = new Dialogue[3];
-        dialogue[0] = Dialogue.Create(Actor.BLOCKING_GUARD, "Hey!", Emotion.IDLE);
-        dialogue[1] = Dialogue.Create(Actor.BLOCKING_GUARD, "You need to show me your ID.", Emotion.IDLE);
-        dialogue[2] = Dialogue.Create(Actor.BLOCKING_GUARD, "Please come here and show me your ID.", Emotion.IDLE);
+        Dialogue dialogue = new Dialogue();
+        DialogueUI[] dialogueUI = new DialogueUI[3];
+        dialogueUI[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Hey!", Emotion.IDLE);
+        dialogueUI[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "You need to show me your ID.", Emotion.IDLE);
+        dialogueUI[2] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Please come here and show me your ID.", Emotion.IDLE);
+        dialogue.EventAfterID = AfterEventID.NONE;
+        dialogue.dialogue = dialogueUI;
         dialogues.Add("TEST", dialogue);
 
-        Dialogue[] dialogue2 = new Dialogue[3];
-        dialogue2[0] = Dialogue.Create(Actor.BLOCKING_GUARD, "Show me your ID!", Emotion.IDLE);
-        dialogue2[1] = Dialogue.Create(Actor.BLOCKING_GUARD, "Use the inventory selector on the right of our conversation tab.", Emotion.IDLE);
-        dialogue2[2] = Dialogue.Create(Actor.BLOCKING_GUARD, "And select your ID to show me.", Emotion.IDLE);
-        dialogues.Add(DialogueKeys.SHOW_ID_TO_GUARD, dialogue2);
+        Dialogue dialogue2 = new Dialogue();
+        DialogueUI[] dialogueUI2 = new DialogueUI[3];
+        dialogueUI2[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Show me your ID!", Emotion.IDLE);
+        dialogueUI2[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Use the inventory selector on the right of our conversation tab.", Emotion.IDLE);
+        dialogueUI2[2] = DialogueUI.Create(Actor.BLOCKING_GUARD, "And select your ID to show me.", Emotion.IDLE);
+        dialogue2.EventAfterID = AfterEventID.NONE;
+        dialogue2.dialogue = dialogueUI2;
+        dialogues.Add(DialogueKeys.HOW_TO_SHOW_ID, dialogue2);
 
-        Dialogue[] dialogue3 = new Dialogue[2];
-        dialogue3[0] = Dialogue.Create(Actor.BLOCKING_GUARD, "Ah, perfect. That's what I needed to see.", Emotion.IDLE);
-        dialogue3[1] = Dialogue.Create(Actor.BLOCKING_GUARD, "Go right on through, the detective is back there already.", Emotion.IDLE);
+        Dialogue dialogue3 = new Dialogue();
+        DialogueUI[] dialogueUI3 = new DialogueUI[2];
+        dialogueUI3[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Ah, perfect. That's what I needed to see.", Emotion.IDLE);
+        dialogueUI3[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Go right on through, the detective is back there already.", Emotion.IDLE);
+        dialogue3.EventAfterID = AfterEventID.SHOW_ID_TO_GUARD;
+        dialogue3.dialogue = dialogueUI3;
         dialogues.Add(DialogueKeys.SHOWING_ID_TO_GUARD, dialogue3);
+
+        Dialogue dialogue4 = new Dialogue();
+        DialogueUI[] dialogueUI4 = new DialogueUI[3];
+        dialogueUI4[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "You've already shown me this.", Emotion.IDLE);
+        dialogueUI4[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "I'm sure you're still the same person.", Emotion.IDLE);
+        dialogueUI4[2] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Go right on through, the detective is back there already.", Emotion.IDLE);
+        dialogue4.EventAfterID = AfterEventID.NONE;
+        dialogue4.dialogue = dialogueUI4;
+        dialogues.Add(DialogueKeys.SHOWN_ID_TO_GUARD, dialogue4);
     }
 }

@@ -12,22 +12,23 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Image image;
-    public Queue<Dialogue> sentences;
+    public Queue<DialogueUI> sentences;
 
     private PlayerMovement playerMovement;
     private ConversationManager conversationManager;
     private bool returnToConversation;
     private Camera mainCamera;
+    private string afterDialogueEvent;
 
     void Awake()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         conversationManager = FindObjectOfType<ConversationManager>();
         mainCamera = Camera.main;
-        sentences = new Queue<Dialogue>();
+        sentences = new Queue<DialogueUI>();
     }
 
-    internal void StartDialogue(Dialogue[] dialogues, bool returnToConversation)
+    internal void StartDialogue(Dialogue dialogue, bool returnToConversation)
     {
         this.returnToConversation = returnToConversation;
         mainCamera.GetComponent<CinemachineBrain>().enabled = false;
@@ -35,10 +36,11 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         //Cursor.lockState = CursorLockMode.None;
         sentences.Clear();
+        afterDialogueEvent = dialogue.EventAfterID;
 
-        foreach (Dialogue dialogue in dialogues)
+        foreach (DialogueUI dialogueUI in dialogue.dialogue)
         {
-            sentences.Enqueue(dialogue);
+            sentences.Enqueue(dialogueUI);
         }
 
         DisplayNextSentence();
@@ -56,12 +58,12 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        Dialogue sentence = sentences.Dequeue();
+        DialogueUI sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence (Dialogue sentence)
+    IEnumerator TypeSentence (DialogueUI sentence)
     {
         if (sentence.image != null)
         {
@@ -87,5 +89,9 @@ public class DialogueManager : MonoBehaviour
         playerMovement.canMove = true;
         mainCamera.GetComponent<CinemachineBrain>().enabled = true;
         //Cursor.lockState = CursorLockMode.Locked;
+        if (afterDialogueEvent != "")
+        {
+            AfterEvent.TriggerEvent(afterDialogueEvent);
+        }
     }
 }
