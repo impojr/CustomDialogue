@@ -10,6 +10,7 @@ public class ConversationInitializer : MonoBehaviour
     void Start()
     {
         conversationManager = FindObjectOfType<ConversationManager>();
+        ConversationList.InitializeConversations();
     }
 
     public void TriggerConversation(ActorList actor)

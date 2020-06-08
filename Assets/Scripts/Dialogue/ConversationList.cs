@@ -4,9 +4,14 @@ using UnityEngine;
 
 public static class ConversationList
 {
-    public static Conversation BLOCKING_GUARD = new Conversation
+    public static Conversation BLOCKING_GUARD;
+
+    public static void InitializeConversations()
     {
-        actor = Actor.BLOCKING_GUARD,
-        textboxes = new TextBox[] { new TextBox { text = DialogueKeys.SHOW_ID_TO_GUARD, visited = false }, null, null, null }
-    };
+        BLOCKING_GUARD = new Conversation
+        {
+            actor = Actor.BLOCKING_GUARD,
+            textboxes = new TextBox[] { new TextBox { text = DialogueKeys.SHOW_ID_TO_GUARD, visited = false }, null, null, null }
+        };
+    }
 }
