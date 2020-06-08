@@ -48,7 +48,7 @@ public class ConversationManager : MonoBehaviour
         mainCamera.GetComponent<CinemachineBrain>().enabled = false;
         playerMovement.canMove = false;
         animator.SetBool("IsOpen", true);
-        speaker.sprite = conversation.actor.image;
+        speaker.sprite = conversation.actor.emotions.Idle;
         speakerName.text = conversation.actor.name;
         UpdateInventoryButtons();
         canvasOpen = true;
