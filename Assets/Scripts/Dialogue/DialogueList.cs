@@ -21,5 +21,10 @@ public static class DialogueList
         dialogue2[1] = Dialogue.Create(Actor.BLOCKING_GUARD, "Use the inventory selector on the right of our conversation tab.");
         dialogue2[2] = Dialogue.Create(Actor.BLOCKING_GUARD, "And select your ID to show me.");
         dialogues.Add(DialogueKeys.SHOW_ID_TO_GUARD, dialogue2);
+
+        Dialogue[] dialogue3 = new Dialogue[2];
+        dialogue3[0] = Dialogue.Create(Actor.BLOCKING_GUARD, "Ah, perfect. That's what I needed to see.");
+        dialogue3[1] = Dialogue.Create(Actor.BLOCKING_GUARD, "Go right on through, the detective is back there already.");
+        dialogues.Add(DialogueKeys.SHOWING_ID_TO_GUARD, dialogue3);
     }
 }

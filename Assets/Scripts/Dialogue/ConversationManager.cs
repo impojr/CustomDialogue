@@ -135,4 +135,12 @@ public class ConversationManager : MonoBehaviour
             inventoryRight.interactable = true;
         }
     }
+
+    public void PresentItem()
+    {
+        Item itemToPresent = Inventory.items[inventoryIndex];
+
+        EndConversation();
+        dialogueInitializer.TriggerDialogue(lastConversation.actor, itemToPresent);
+    }
 }

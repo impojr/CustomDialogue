@@ -20,4 +20,15 @@ public class DialogueInitializer : MonoBehaviour
 
         dialogueManager.StartDialogue(dialogue, returnToConversation);
     }
+
+    public void TriggerDialogue(Actor actor, Item item)
+    {
+        if (item == ItemList.ID)
+        {
+            if (actor == Actor.BLOCKING_GUARD)
+            {
+                TriggerDialogue(DialogueKeys.SHOWING_ID_TO_GUARD, true);
+            }
+        }
+    }
 }
