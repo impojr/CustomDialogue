@@ -91,7 +91,7 @@ public class DialogueManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         if (afterDialogueEvent != "")
         {
-            AfterEvent.TriggerEvent(afterDialogueEvent);
+            FindObjectOfType<AfterEvent>().TriggerEvent(afterDialogueEvent);
         }
     }
 }
