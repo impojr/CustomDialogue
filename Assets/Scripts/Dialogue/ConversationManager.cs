@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class ConversationManager : MonoBehaviour
 {
@@ -21,9 +22,11 @@ public class ConversationManager : MonoBehaviour
     private DialogueInitializer dialogueInitializer;
     private Conversation lastConversation;
     private int inventoryIndex;
+    private Camera mainCamera;
 
     void Awake()
     {
+        mainCamera = Camera.main;
         dialogueInitializer = FindObjectOfType<DialogueInitializer>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         canvasOpen = false;
@@ -42,6 +45,7 @@ public class ConversationManager : MonoBehaviour
 
     public void StartConversation(Conversation conversation)
     {
+        mainCamera.GetComponent<CinemachineBrain>().enabled = false;
         playerMovement.canMove = false;
         animator.SetBool("IsOpen", true);
         speaker.sprite = conversation.actor.image;
@@ -75,6 +79,7 @@ public class ConversationManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         canvasOpen = false;
         playerMovement.canMove = true;
+        mainCamera.GetComponent<CinemachineBrain>().enabled = true;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -16,22 +17,20 @@ public class DialogueManager : MonoBehaviour
     private PlayerMovement playerMovement;
     private ConversationManager conversationManager;
     private bool returnToConversation;
+    private Camera mainCamera;
 
     void Awake()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         conversationManager = FindObjectOfType<ConversationManager>();
-    }
-
-    void Start()
-    {
-        //Cursor.lockState = CursorLockMode.Locked;
+        mainCamera = Camera.main;
         sentences = new Queue<Dialogue>();
     }
 
     internal void StartDialogue(Dialogue[] dialogues, bool returnToConversation)
     {
         this.returnToConversation = returnToConversation;
+        mainCamera.GetComponent<CinemachineBrain>().enabled = false;
         playerMovement.canMove = false;
         animator.SetBool("IsOpen", true);
         //Cursor.lockState = CursorLockMode.None;
@@ -86,6 +85,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         playerMovement.canMove = true;
+        mainCamera.GetComponent<CinemachineBrain>().enabled = true;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 }
