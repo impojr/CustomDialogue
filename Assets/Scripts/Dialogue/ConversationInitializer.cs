@@ -12,9 +12,9 @@ public class ConversationInitializer : MonoBehaviour
         conversationManager = FindObjectOfType<ConversationManager>();
     }
 
-    public void TriggerConversation(Actor actor)
+    public void TriggerConversation(ActorList actor)
     {
-        if (actor.name == "Guard")
+        if (actor == ActorList.BLOCKING_GUARD)
         {
             conversationManager.StartConversation(ConversationList.BLOCKING_GUARD);
         }

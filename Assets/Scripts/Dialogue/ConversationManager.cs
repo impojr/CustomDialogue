@@ -9,6 +9,7 @@ public class ConversationManager : MonoBehaviour
     public Animator animator;
     public bool canvasOpen;
     public Image speaker;
+    public TextMeshProUGUI speakerName;
 
     public Button[] talkItems;
 
@@ -34,7 +35,8 @@ public class ConversationManager : MonoBehaviour
     {
         playerMovement.canMove = false;
         animator.SetBool("IsOpen", true);
-        speaker.sprite = conversation.sprite;
+        speaker.sprite = conversation.actor.image;
+        speakerName.text = conversation.actor.name;
         canvasOpen = true;
 
         for (int i = 0; i < talkItems.Length; i++)

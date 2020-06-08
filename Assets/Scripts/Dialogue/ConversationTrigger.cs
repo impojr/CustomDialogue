@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConversationTrigger : MonoBehaviour
 {
     private bool startConversation = false;
-    private Actor conversationWith;
+    private ActorSelector conversationWith;
 
     private ConversationInitializer conversationInitializer;
 
@@ -18,7 +18,7 @@ public class ConversationTrigger : MonoBehaviour
     void Update()
     {
         if (startConversation && Input.GetKeyDown(KeyCode.Space)) {
-            conversationInitializer.TriggerConversation(conversationWith);
+            conversationInitializer.TriggerConversation(conversationWith.actor);
         }
     }
 
@@ -28,7 +28,7 @@ public class ConversationTrigger : MonoBehaviour
         if (other.tag == "NPC")
         {
             startConversation = true;
-            conversationWith = other.gameObject.GetComponent<Actor>();
+            conversationWith = other.gameObject.GetComponent<ActorSelector>();
         }
     }
 

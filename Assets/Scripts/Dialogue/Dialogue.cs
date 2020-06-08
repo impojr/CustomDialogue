@@ -9,13 +9,13 @@ public class Dialogue
     public string sentence;
     public Sprite image;
 
-    public static Dialogue Create (string name, string sentence, Sprite image = null)
+    public static Dialogue Create (Actor actor, string sentence)
     {
         return new Dialogue
         {
-            name = name,
+            name = actor.name,
             sentence = sentence,
-            image = image
+            image = actor.image
         };
     }
 }

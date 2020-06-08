@@ -6,8 +6,7 @@ public static class ConversationList
 {
     public static Conversation BLOCKING_GUARD = new Conversation
     {
-        name = "Guard",
-        //sprite =
+        actor = Actor.BLOCKING_GUARD,
         textboxes = new TextBox[] { new TextBox { text = DialogueKeys.SHOW_ID_TO_GUARD, visited = false }, null, null, null }
     };
 }
