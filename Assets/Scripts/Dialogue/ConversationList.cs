@@ -11,6 +11,7 @@ public static class ConversationList
         BLOCKING_GUARD = new Conversation
         {
             actor = Actor.BLOCKING_GUARD,
+            emotion = Emotion.IDLE,
             textboxes = new TextBox[] { new TextBox { text = DialogueKeys.SHOW_ID_TO_GUARD, visited = false }, null, null, null }
         };
     }

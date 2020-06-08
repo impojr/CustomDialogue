@@ -7,6 +7,7 @@ public class Conversation
 {
     public Actor actor;
     public TextBox[] textboxes = new TextBox[4];
+    public Emotion emotion;
 
     public void SetAsVisited(string text)
     {
