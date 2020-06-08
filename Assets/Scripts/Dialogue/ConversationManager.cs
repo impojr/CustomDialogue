@@ -12,16 +12,25 @@ public class ConversationManager : MonoBehaviour
     public TextMeshProUGUI speakerName;
 
     public Button[] talkItems;
+    public Image inventoryItemImage;
+    public TextMeshProUGUI inventoryItemName;
+    public Button inventoryLeft;
+    public Button inventoryRight;
 
     private PlayerMovement playerMovement;
     private DialogueInitializer dialogueInitializer;
     private Conversation lastConversation;
+    private int inventoryIndex;
 
     void Awake()
     {
         dialogueInitializer = FindObjectOfType<DialogueInitializer>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         canvasOpen = false;
+
+        inventoryIndex = 0;
+        UpdateInventoryItem();
+        UpdateInventoryButtons();
     }
 
     void Update()
@@ -37,6 +46,7 @@ public class ConversationManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         speaker.sprite = conversation.actor.image;
         speakerName.text = conversation.actor.name;
+        UpdateInventoryButtons();
         canvasOpen = true;
 
         for (int i = 0; i < talkItems.Length; i++)
@@ -78,5 +88,51 @@ public class ConversationManager : MonoBehaviour
     public void ReturnToConversation()
     {
         StartConversation(lastConversation);
+    }
+
+    public void MoveInventoryLeft()
+    {
+        if (inventoryIndex == 0)
+        {
+            inventoryIndex = Inventory.items.Count - 1;
+        } else
+        {
+            inventoryIndex--;
+        }
+
+        UpdateInventoryItem();
+    }
+
+    public void MoveInventoryRight()
+    {
+        if (inventoryIndex == Inventory.items.Count - 1)
+        {
+            inventoryIndex = 0;
+        }
+        else
+        {
+            inventoryIndex++;
+        }
+
+        UpdateInventoryItem();
+    }
+
+    public void UpdateInventoryItem()
+    {
+        inventoryItemImage.sprite = Inventory.items[inventoryIndex].image;
+        inventoryItemName.text = Inventory.items[inventoryIndex].name;
+    }
+
+    public void UpdateInventoryButtons()
+    {
+        if (Inventory.items.Count < 2)
+        {
+            inventoryLeft.interactable = false;
+            inventoryRight.interactable = false;
+        } else
+        {
+            inventoryLeft.interactable = true;
+            inventoryRight.interactable = true;
+        }
     }
 }

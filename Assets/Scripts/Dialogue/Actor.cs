@@ -12,7 +12,7 @@ public class Actor
     {
         id = ActorList.BLOCKING_GUARD,
         name = "Jeff",
-        image = Resources.Load<Sprite>("Images/BlockingGuard/Idle")
+        image = Resources.Load<Sprite>("Images/Actors/BlockingGuard/Idle")
     };
 }
 
