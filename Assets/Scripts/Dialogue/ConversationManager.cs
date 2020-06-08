@@ -10,10 +10,7 @@ public class ConversationManager : MonoBehaviour
     public bool canvasOpen;
     public Image speaker;
 
-    public Button talkItem1;
-    public Button talkItem2;
-    public Button talkItem3;
-    public Button talkItem4;
+    public Button[] talkItems;
 
     private PlayerMovement playerMovement;
     private DialogueInitializer dialogueInitializer;
@@ -40,52 +37,21 @@ public class ConversationManager : MonoBehaviour
         speaker.sprite = conversation.sprite;
         canvasOpen = true;
 
-        talkItem1.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox1.text;
-        if (conversation.textbox1.visited)
+        for (int i = 0; i < talkItems.Length; i++)
         {
-            talkItem1.GetComponent<Image>().color = Color.grey;
-        }
-
-        if (conversation.textbox2 != null)
-        {
-            talkItem2.gameObject.SetActive(true);
-            talkItem2.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox2.text;
-            if (conversation.textbox2.visited)
+            if (conversation.textboxes[i] != null)
             {
-                talkItem2.GetComponent<Image>().color = Color.grey;
+                talkItems[i].gameObject.SetActive(true);
+                talkItems[i].GetComponentInChildren<TextMeshProUGUI>().text = conversation.textboxes[i].text;
+                if (conversation.textboxes[i].visited)
+                {
+                    talkItems[i].GetComponent<Image>().color = Color.grey;
+                }
             }
-        }
-        else
-        {
-            talkItem2.gameObject.SetActive(false);
-        }
-
-        if (conversation.textbox3 != null)
-        {
-            talkItem3.gameObject.SetActive(true);
-            talkItem3.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox3.text;
-            if (conversation.textbox3.visited)
+            else
             {
-                talkItem3.GetComponent<Image>().color = Color.grey;
+                talkItems[i].gameObject.SetActive(false);
             }
-        }
-        else
-        {
-            talkItem3.gameObject.SetActive(false);
-        }
-
-        if (conversation.textbox4 != null)
-        {
-            talkItem4.gameObject.SetActive(true);
-            talkItem4.GetComponentInChildren<TextMeshProUGUI>().text = conversation.textbox4.text;
-            if (conversation.textbox4.visited)
-            {
-                talkItem4.GetComponent<Image>().color = Color.grey;
-            }
-        }
-        else
-        {
-            talkItem4.gameObject.SetActive(false);
         }
 
         lastConversation = conversation;

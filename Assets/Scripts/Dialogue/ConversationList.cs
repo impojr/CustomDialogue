@@ -8,9 +8,6 @@ public static class ConversationList
     {
         name = "Guard",
         //sprite =
-        textbox1 = new TextBox { text = DialogueKeys.SHOW_ID_TO_GUARD, visited = false },
-        textbox2 = null,
-        textbox3 = null,
-        textbox4 = null
+        textboxes = new TextBox[] { new TextBox { text = DialogueKeys.SHOW_ID_TO_GUARD, visited = false }, null, null, null }
     };
 }
