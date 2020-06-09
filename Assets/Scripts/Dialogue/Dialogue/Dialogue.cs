@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dialogue
 {
     public DialogueUI[] dialogue;
-    public string EventAfterID;
+    public AfterEventList EventAfterID;
 }
 
 public class DialogueUI

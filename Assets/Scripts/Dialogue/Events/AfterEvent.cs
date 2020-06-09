@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AfterEvent : MonoBehaviour
 {
-    public void TriggerEvent(string eventID)
+    public void TriggerEvent(AfterEventList eventID)
     {
-        if (eventID == AfterEventID.SHOW_ID_TO_GUARD)
+        if (eventID == AfterEventList.SHOW_ID_TO_GUARD)
         {
             Flags.SHOWN_GUARD_ID = true;
         }

@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     private ConversationManager conversationManager;
     private bool returnToConversation;
     private Camera mainCamera;
-    private string afterDialogueEvent;
+    private AfterEventList afterDialogueEvent;
 
     void Awake()
     {
@@ -89,7 +89,7 @@ public class DialogueManager : MonoBehaviour
         playerMovement.canMove = true;
         mainCamera.GetComponent<CinemachineBrain>().enabled = true;
         //Cursor.lockState = CursorLockMode.Locked;
-        if (afterDialogueEvent != "")
+        if (afterDialogueEvent != AfterEventList.NONE)
         {
             FindObjectOfType<AfterEvent>().TriggerEvent(afterDialogueEvent);
         }
