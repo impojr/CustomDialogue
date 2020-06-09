@@ -24,7 +24,6 @@ public class ConversationTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger " + other.tag);
         if (other.tag == "NPC")
         {
             startConversation = true;

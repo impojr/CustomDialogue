@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private bool returnToConversation;
     private Camera mainCamera;
     private AfterEventList afterDialogueEvent;
+    private bool isTypingSentence;
 
     void Awake()
     {
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
         conversationManager = FindObjectOfType<ConversationManager>();
         mainCamera = Camera.main;
         sentences = new Queue<DialogueUI>();
+        isTypingSentence = false;
     }
 
     internal void StartDialogue(Dialogue dialogue, bool returnToConversation)
@@ -48,6 +50,11 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        if (isTypingSentence)
+        {
+            return;
+        }
+
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -65,6 +72,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence (DialogueUI sentence)
     {
+        isTypingSentence = true;
         if (sentence.image != null)
         {
             image.sprite = sentence.image;
@@ -81,6 +89,7 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForEndOfFrame();
         }
+        isTypingSentence = false;
     }
 
     private void EndDialogue()
@@ -91,7 +100,7 @@ public class DialogueManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         if (afterDialogueEvent != AfterEventList.NONE)
         {
-            FindObjectOfType<AfterEvent>().TriggerEvent(afterDialogueEvent);
+            FindObjectOfType<EventManager>().TriggerEvent(afterDialogueEvent);
         }
     }
 }

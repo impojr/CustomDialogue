@@ -44,5 +44,14 @@ public static class DialogueList
         dialogue4.EventAfterID = AfterEventList.NONE;
         dialogue4.dialogue = dialogueUI4;
         dialogues.Add(DialogueKeys.SHOWN_ID_TO_GUARD, dialogue4);
+
+        Dialogue dialogue5 = new Dialogue();
+        DialogueUI[] dialogueUI5 = new DialogueUI[3];
+        dialogueUI5[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Stop!", Emotion.IDLE);
+        dialogueUI5[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "You need to show me your ID!", Emotion.IDLE);
+        dialogueUI5[2] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Come over here and show it to me!", Emotion.IDLE);
+        dialogue5.EventAfterID = AfterEventList.MOVE_BACK_BEHIND_GUARD;
+        dialogue5.dialogue = dialogueUI5;
+        dialogues.Add(DialogueKeys.WALK_PAST_GUARD_WITHOUT_SHOWING_ID, dialogue5);
     }
 }
