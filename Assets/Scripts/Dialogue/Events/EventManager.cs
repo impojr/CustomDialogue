@@ -7,8 +7,6 @@ public class EventManager : MonoBehaviour
     private DialogueInitializer dialogueInitializer;
     private PlayerMovement playerMovement;
 
-    public Transform positionToMoveTo;
-
     void Awake()
     {
         dialogueInitializer = FindObjectOfType<DialogueInitializer>();
@@ -36,12 +34,18 @@ public class EventManager : MonoBehaviour
     {
         playerMovement.DisablePlayerMovement();
         playerMovement.StartWalkingAnim();
-        playerMovement.transform.LookAt(positionToMoveTo);
 
-        while (Vector3.Distance(playerMovement.transform.position, positionToMoveTo.position) > 0.1f)
+        GameObject positionToMoveTo = new GameObject();
+        positionToMoveTo.transform.position = playerMovement.transform.position - new Vector3(0, 0, 2);
+        positionToMoveTo.transform.rotation = playerMovement.transform.rotation;
+
+
+        playerMovement.transform.LookAt(positionToMoveTo.transform);
+
+        while (Vector3.Distance(playerMovement.transform.position, positionToMoveTo.transform.position) > 0.1f)
         {
             float step = playerMovement.Velocity * Time.deltaTime; // calculate distance to move
-            playerMovement.transform.position = Vector3.MoveTowards(playerMovement.transform.position, positionToMoveTo.position, step);
+            playerMovement.transform.position = Vector3.MoveTowards(playerMovement.transform.position, positionToMoveTo.transform.position, step);
             yield return new WaitForEndOfFrame();
         }
 
