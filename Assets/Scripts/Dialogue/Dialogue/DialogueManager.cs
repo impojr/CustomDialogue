@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
     {
         this.returnToConversation = returnToConversation;
         mainCamera.GetComponent<CinemachineBrain>().enabled = false;
-        playerMovement.canMove = false;
+        playerMovement.DisablePlayerMovement();
         animator.SetBool("IsOpen", true);
         //Cursor.lockState = CursorLockMode.None;
         sentences.Clear();
@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        playerMovement.canMove = true;
+        playerMovement.EnablePlayerMovement();
         mainCamera.GetComponent<CinemachineBrain>().enabled = true;
         //Cursor.lockState = CursorLockMode.Locked;
         if (afterDialogueEvent != AfterEventList.NONE)

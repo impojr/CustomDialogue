@@ -46,7 +46,7 @@ public class ConversationManager : MonoBehaviour
     public void StartConversation(Conversation conversation)
     {
         mainCamera.GetComponent<CinemachineBrain>().enabled = false;
-        playerMovement.canMove = false;
+        playerMovement.DisablePlayerMovement();
         animator.SetBool("IsOpen", true);
         speaker.sprite = EmotionHelper.GetSpriteOfEmotion(conversation.emotion, conversation.actor);
         speakerName.text = conversation.actor.name;
@@ -78,7 +78,7 @@ public class ConversationManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         canvasOpen = false;
-        playerMovement.canMove = true;
+        playerMovement.EnablePlayerMovement();
         mainCamera.GetComponent<CinemachineBrain>().enabled = true;
         //Cursor.lockState = CursorLockMode.Locked;
     }

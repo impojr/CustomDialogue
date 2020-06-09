@@ -44,13 +44,8 @@ public class PlayerMovement : MonoBehaviour
         {
             InputX = Input.GetAxis("Horizontal");
             InputZ = Input.GetAxis("Vertical");
-        } else
-        {
-            InputX = 0;
-            InputZ = 0;
-        }
-
-        ProcessInputs();
+            ProcessInputs();
+        } 
     }
 
     void ProcessInputs()
@@ -90,10 +85,22 @@ public class PlayerMovement : MonoBehaviour
     public void DisablePlayerMovement()
     {
         canMove = false;
+        Speed = 0;
+        anim.SetFloat("Blend", Speed);
     }
 
     public void EnablePlayerMovement()
     {
         canMove = true;
+    }
+
+    public void StartWalkingAnim()
+    {
+        anim.SetFloat("Blend", Velocity);
+    }
+
+    public void StopWalkingAnim()
+    {
+        anim.SetFloat("Blend", 0);
     }
 }
