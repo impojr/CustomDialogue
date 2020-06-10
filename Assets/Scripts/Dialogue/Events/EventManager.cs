@@ -17,20 +17,30 @@ public class EventManager : MonoBehaviour
     {
         if (eventID == AfterEventList.SHOW_ID_TO_GUARD)
         {
-            Flags.SHOWN_GUARD_ID = true;
+            SetShownGuardIdToTrue();
         } else if (eventID == AfterEventList.GO_PAST_GUARD_WITHOUT_SHOWING_ID)
         {
-            if (!Flags.SHOWN_GUARD_ID)
-            {
-                dialogueInitializer.TriggerDialogue(DialogueKeys.WALK_PAST_GUARD_WITHOUT_SHOWING_ID, false);
-            }
+            ShowNoIdDialogueIfNoIdShown();
         } else if (eventID == AfterEventList.MOVE_BACK_BEHIND_GUARD)
         {
             StartCoroutine(MovePlayer());
         }
     }
 
-    public IEnumerator MovePlayer()
+    private void SetShownGuardIdToTrue()
+    {
+        Flags.SHOWN_GUARD_ID = true;
+    }
+
+    private void ShowNoIdDialogueIfNoIdShown()
+    {
+        if (!Flags.SHOWN_GUARD_ID)
+        {
+            dialogueInitializer.TriggerDialogue(DialogueKeys.WALK_PAST_GUARD_WITHOUT_SHOWING_ID, false);
+        }
+    }
+
+    private IEnumerator MovePlayer()
     {
         playerMovement.DisablePlayerMovement();
         playerMovement.StartWalkingAnim();
