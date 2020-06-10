@@ -32,7 +32,7 @@ public class DialogueInitializer : MonoBehaviour
                     TriggerDialogue(DialogueKeys.SHOWN_ID_TO_GUARD, true);
                 } else
                 {
-                    TriggerDialogue(DialogueKeys.SHOWING_ID_TO_GUARD, true);
+                    TriggerDialogue(DialogueKeys.GUARD_SHOWING_ID, true);
                 }
             }
         }

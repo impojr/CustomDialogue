@@ -25,4 +25,10 @@ public class TextBox
 {
     public string text;
     public bool visited;
+
+    public TextBox(string text)
+    {
+        this.text = text;
+        visited = false;
+    }
 }

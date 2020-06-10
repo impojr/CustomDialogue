@@ -12,7 +12,7 @@ public static class ConversationList
         {
             actor = Actor.BLOCKING_GUARD,
             emotion = Emotion.IDLE,
-            textboxes = new TextBox[] { new TextBox { text = DialogueKeys.HOW_TO_SHOW_ID, visited = false }, null, null, null }
+            textboxes = new TextBox[] { new TextBox(DialogueKeys.GUARD_HOW_TO_SHOW_ID), null, null, null }
         };
     }
 }
