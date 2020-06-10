@@ -10,15 +10,6 @@ public static class DialogueList
     {
         dialogues = new Dictionary<string, Dialogue>();
 
-        Dialogue dialogue = new Dialogue();
-        DialogueUI[] dialogueUI = new DialogueUI[3];
-        dialogueUI[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Hey!", Emotion.IDLE);
-        dialogueUI[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "You need to show me your ID.", Emotion.IDLE);
-        dialogueUI[2] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Please come here and show me your ID.", Emotion.IDLE);
-        dialogue.EventAfterID = AfterEventList.NONE;
-        dialogue.dialogue = dialogueUI;
-        dialogues.Add("TEST", dialogue);
-
         Dialogue dialogue2 = new Dialogue();
         DialogueUI[] dialogueUI2 = new DialogueUI[3];
         dialogueUI2[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Show me your ID!", Emotion.IDLE);
@@ -48,8 +39,8 @@ public static class DialogueList
         Dialogue dialogue5 = new Dialogue();
         DialogueUI[] dialogueUI5 = new DialogueUI[3];
         dialogueUI5[0] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Stop!", Emotion.IDLE);
-        dialogueUI5[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "You need to show me your ID!", Emotion.IDLE);
-        dialogueUI5[2] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Come over here and show it to me!", Emotion.IDLE);
+        dialogueUI5[1] = DialogueUI.Create(Actor.BLOCKING_GUARD, "You need to show me your ID!", Emotion.SAD);
+        dialogueUI5[2] = DialogueUI.Create(Actor.BLOCKING_GUARD, "Come over here and show it to me!", Emotion.HAPPY);
         dialogue5.EventAfterID = AfterEventList.MOVE_BACK_BEHIND_GUARD;
         dialogue5.dialogue = dialogueUI5;
         dialogues.Add(DialogueKeys.WALK_PAST_GUARD_WITHOUT_SHOWING_ID, dialogue5);
