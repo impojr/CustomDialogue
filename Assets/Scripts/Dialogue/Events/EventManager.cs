@@ -24,6 +24,9 @@ public class EventManager : MonoBehaviour
         } else if (eventID == AfterEventList.MOVE_BACK_BEHIND_GUARD)
         {
             StartCoroutine(MovePlayer());
+        } else if (eventID == AfterEventList.HOMELESS_MAN_CONVERSATION)
+        {
+            dialogueInitializer.TriggerDialogue(DialogueKeys.HOMELESS_MAN_CONVERSATION, false);
         }
     }
 

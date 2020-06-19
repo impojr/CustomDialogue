@@ -52,5 +52,13 @@ public static class DialogueList
         dialogue6.EventAfterID = AfterEventList.NONE;
         dialogue6.dialogue = dialogueUI6;
         dialogues.Add(DialogueKeys.GUARD_SEEN_ANYTHING_ODD, dialogue6);
+
+        Dialogue dialogue7 = new Dialogue();
+        DialogueUI[] dialogueUI7 = new DialogueUI[2];
+        dialogueUI7[0] = DialogueUI.Create(Actor.COP_AT_FRONT_OF_HOUSE, "Lalalala", Emotion.IDLE);
+        dialogueUI7[1] = DialogueUI.Create(Actor.HOMELESS_MAN, "Tetetetete", Emotion.IDLE);
+        dialogue7.EventAfterID = AfterEventList.NONE;
+        dialogue7.dialogue = dialogueUI7;
+        dialogues.Add(DialogueKeys.HOMELESS_MAN_CONVERSATION, dialogue7);
     }
 }
