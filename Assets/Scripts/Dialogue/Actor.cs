@@ -14,9 +14,25 @@ public class Actor
         name = "Jeff",
         emotions = EmotionSprites.Create("Images/Actors/BlockingGuard")
     };
+
+    public static Actor COP_AT_FRONT_OF_HOUSE = new Actor
+    {
+        id = ActorList.COP_AT_FRONT_OF_HOUSE,
+        name = "Cop",
+        emotions = EmotionSprites.Create("Images/Actors/CopAtFrontOfHouse")
+    };
+
+    public static Actor HOMELESS_MAN = new Actor
+    {
+        id = ActorList.HOMELESS_MAN,
+        name = "Homeless Man",
+        emotions = EmotionSprites.Create("Images/Actors/HomelessMan")
+    };
 }
 
 public enum ActorList
 {
-    BLOCKING_GUARD
+    BLOCKING_GUARD,
+    COP_AT_FRONT_OF_HOUSE,
+    HOMELESS_MAN
 }
