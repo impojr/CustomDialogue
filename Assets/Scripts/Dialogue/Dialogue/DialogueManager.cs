@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Image image;
     public Queue<DialogueUI> sentences;
+    public bool canvasOpen;
 
     private PlayerMovement playerMovement;
     private ConversationManager conversationManager;
@@ -36,6 +37,7 @@ public class DialogueManager : MonoBehaviour
         mainCamera.GetComponent<CinemachineBrain>().enabled = false;
         playerMovement.DisablePlayerMovement();
         animator.SetBool("IsOpen", true);
+        canvasOpen = true;
         //Cursor.lockState = CursorLockMode.None;
         sentences.Clear();
         afterDialogueEvent = dialogue.EventAfterID;
@@ -97,6 +99,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         playerMovement.EnablePlayerMovement();
         mainCamera.GetComponent<CinemachineBrain>().enabled = true;
+        canvasOpen = false;
         //Cursor.lockState = CursorLockMode.Locked;
         if (afterDialogueEvent != AfterEventList.NONE)
         {
