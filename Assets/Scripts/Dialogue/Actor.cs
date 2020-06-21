@@ -34,5 +34,7 @@ public enum ActorList
 {
     BLOCKING_GUARD,
     COP_AT_FRONT_OF_HOUSE,
-    HOMELESS_MAN
+    HOMELESS_MAN,
+    DETECTIVE,
+    CORONER
 }
