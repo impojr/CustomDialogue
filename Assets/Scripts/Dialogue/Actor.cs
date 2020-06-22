@@ -8,6 +8,13 @@ public class Actor
     public string name;
     public EmotionSprites emotions;
 
+    public static Actor RECEIVE_ITEM = new Actor
+    {
+        id = ActorList.RECEIVE_ITEM,
+        name = " ",
+        emotions = EmotionSprites.Create("Images/Actors/BlockingGuard")
+    };
+
     public static Actor BLOCKING_GUARD = new Actor
     {
         id = ActorList.BLOCKING_GUARD,
@@ -50,5 +57,6 @@ public enum ActorList
     COP_AT_FRONT_OF_HOUSE,
     HOMELESS_MAN,
     DETECTIVE,
+    RECEIVE_ITEM,
     CORONER
 }
