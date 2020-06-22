@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public static class DialogueList
         WalkPastGuardWithoutShowingIdDialogue();
         GuardSeenAnythingOddDialogue();
         HomelessManConversationDialogue();
+        DetectiveCoronerIntro();
     }
 
     private static void HowToShowGuardIdDialogue()
@@ -84,5 +86,16 @@ public static class DialogueList
         dialogue.EventAfterID = AfterEventList.NONE;
         dialogue.dialogue = dialogueUI;
         dialogues.Add(DialogueKeys.HOMELESS_MAN_CONVERSATION, dialogue);
+    }
+
+    private static void DetectiveCoronerIntro()
+    {
+        Dialogue dialogue = new Dialogue();
+        DialogueUI[] dialogueUI = new DialogueUI[2];
+        dialogueUI[0] = DialogueUI.Create(Actor.CORONER, "Lalalala", Emotion.IDLE);
+        dialogueUI[1] = DialogueUI.Create(Actor.DETECTIVE, "Tetetetete", Emotion.IDLE);
+        dialogue.EventAfterID = AfterEventList.FIRST_MET_DETECTIVE_CORONER;
+        dialogue.dialogue = dialogueUI;
+        dialogues.Add(DialogueKeys.DETECTIVE_CORONER_INTRO, dialogue);
     }
 }

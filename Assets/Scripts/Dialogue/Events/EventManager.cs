@@ -27,6 +27,9 @@ public class EventManager : MonoBehaviour
         } else if (eventID == AfterEventList.HOMELESS_MAN_CONVERSATION)
         {
             dialogueInitializer.TriggerDialogue(DialogueKeys.HOMELESS_MAN_CONVERSATION, false);
+        } else if (eventID == AfterEventList.FIRST_MET_DETECTIVE_CORONER)
+        {
+            Flags.FIRST_MET_DETECTIVE_CORONER = true;
         }
     }
 

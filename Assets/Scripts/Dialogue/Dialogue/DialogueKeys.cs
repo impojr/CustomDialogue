@@ -10,4 +10,5 @@ public static class DialogueKeys
     public static string WALK_PAST_GUARD_WITHOUT_SHOWING_ID = "Walking past guard without showing ID";
     public static string GUARD_SEEN_ANYTHING_ODD = "Seen anything odd?";
     public static string HOMELESS_MAN_CONVERSATION = "Homeless Man Conversation";
+    public static string DETECTIVE_CORONER_INTRO = "Detective Coroner Intro";
 }

@@ -28,6 +28,20 @@ public class Actor
         name = "Homeless Man",
         emotions = EmotionSprites.Create("Images/Actors/HomelessMan")
     };
+
+    public static Actor DETECTIVE = new Actor
+    {
+        id = ActorList.DETECTIVE,
+        name = "Detective",
+        emotions = EmotionSprites.Create("Images/Actors/Detective")
+    };
+
+    public static Actor CORONER = new Actor
+    {
+        id = ActorList.CORONER,
+        name = "Coroner",
+        emotions = EmotionSprites.Create("Images/Actors/Coroner")
+    };
 }
 
 public enum ActorList
