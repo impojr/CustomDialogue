@@ -100,12 +100,12 @@ public static class DialogueList
         //todo add item to inventory, autopsy report
         dialogueUI[5] = DialogueUI.Create(Actor.CORONER, "The victim was stabbed sometime last night. That seems to be the cause of death.", Emotion.IDLE);
         dialogueUI[6] = DialogueUI.Create(Actor.DETECTIVE, "Yes. And the only two people here last night were the victim, Dee Ceest and her boss, Wissen.", Emotion.IDLE);
-        dialogueUI[7] = DialogueUI.Create(Actor.DETECTIVE, "Oh. Well that sounds easy: her boss did it.", Emotion.IDLE); //todo change to player
+        dialogueUI[7] = DialogueUI.Create(Actor.PLAYER, "Oh. Well that sounds easy: her boss did it.", Emotion.IDLE);
         dialogueUI[8] = DialogueUI.Create(Actor.DETECTIVE, "Remember what I told you about making assumptions?", Emotion.IDLE);
         dialogueUI[9] = DialogueUI.Create(Actor.DETECTIVE, "Though, in this case I'd agree with you.", Emotion.IDLE);
         dialogueUI[10] = DialogueUI.Create(Actor.DETECTIVE, "However, this looks like a good time for you to take charge in this investigation.", Emotion.IDLE);
-        dialogueUI[11] = DialogueUI.Create(Actor.DETECTIVE, "You sure?! It will be my first time taking the lead.", Emotion.IDLE); //todo change to player
-        dialogueUI[12] = DialogueUI.Create(Actor.DETECTIVE, "I'm sure. We need to go over the scene, do some questioning, and connect the dots. You have the reigns.", Emotion.IDLE); //todo change to player
+        dialogueUI[11] = DialogueUI.Create(Actor.PLAYER, "You sure?! It will be my first time taking the lead.", Emotion.IDLE);
+        dialogueUI[12] = DialogueUI.Create(Actor.DETECTIVE, "I'm sure. We need to go over the scene, do some questioning, and connect the dots. You have the reigns.", Emotion.IDLE);
         dialogue.EventAfterID = AfterEventList.FIRST_MET_DETECTIVE_CORONER;
         dialogue.dialogue = dialogueUI;
         dialogues.Add(DialogueKeys.DETECTIVE_CORONER_INTRO, dialogue);

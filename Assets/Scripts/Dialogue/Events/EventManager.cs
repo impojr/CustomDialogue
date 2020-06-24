@@ -29,7 +29,7 @@ public class EventManager : MonoBehaviour
             dialogueInitializer.TriggerDialogue(DialogueKeys.HOMELESS_MAN_CONVERSATION, false);
         } else if (eventID == AfterEventList.FIRST_MET_DETECTIVE_CORONER)
         {
-            Flags.FIRST_MET_DETECTIVE_CORONER = true;
+            SetFirstMetFlagAndGetAutopsyReport();
         }
     }
 
@@ -68,5 +68,11 @@ public class EventManager : MonoBehaviour
 
         playerMovement.StopWalkingAnim();
         playerMovement.EnablePlayerMovement();
+    }
+
+    private void SetFirstMetFlagAndGetAutopsyReport()
+    {
+        Flags.FIRST_MET_DETECTIVE_CORONER = true;
+        Inventory.AddItem(ItemList.PRELIM_AUTOPSY);
     }
 }
