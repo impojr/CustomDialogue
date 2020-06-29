@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &523558001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523558002}
+  m_Layer: 0
+  m_Name: WarpLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523558002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523558001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -329.78, y: -0.122, z: 5.025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4190610348509272506}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1486222526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486222527}
+  m_Layer: 0
+  m_Name: WarpLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486222527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486222526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 328.43, y: -0.204, z: -4.868}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4190610347831369549}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4190610347605077449
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,11 +711,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6086436077390343069, guid: 02ae2492d1bf3fd418e5aeea48857c5f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086436077390343071, guid: 02ae2492d1bf3fd418e5aeea48857c5f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02ae2492d1bf3fd418e5aeea48857c5f, type: 3}
 --- !u!4 &4190610348993165733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6086436075726801795, guid: 02ae2492d1bf3fd418e5aeea48857c5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7953168606714507814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4190610348509272506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6086436077390343068, guid: 02ae2492d1bf3fd418e5aeea48857c5f,
     type: 3}
   m_PrefabInstance: {fileID: 7953168606714507814}
   m_PrefabAsset: {fileID: 0}
@@ -726,8 +802,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5064624284621733931, guid: 33972b00bec50d44486389c98a9f1ccc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064624284621733929, guid: 33972b00bec50d44486389c98a9f1ccc,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33972b00bec50d44486389c98a9f1ccc, type: 3}
+--- !u!4 &4190610347831369549 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5064624284621733928, guid: 33972b00bec50d44486389c98a9f1ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8962481140189536101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4190610349125523442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5064624286414751895, guid: 33972b00bec50d44486389c98a9f1ccc,
