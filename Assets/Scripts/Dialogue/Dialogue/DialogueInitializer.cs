@@ -11,12 +11,12 @@ public class DialogueInitializer : Singleton<DialogueInitializer>
     void Start()
     {
         dialogueManager = DialogueManager.Instance;
-        DialogueList.InitializeDialogueDictionary();
+        DialogueDatabase.InitializeDialogueDictionary();
     }
 
     public void TriggerDialogue(string key, bool returnToConversation)
     {
-        Dialogue dialogue = DialogueList.dialogues[key];
+        Dialogue dialogue = DialogueDatabase.dialogues[key];
 
         dialogueManager.StartDialogue(dialogue, returnToConversation);
     }
