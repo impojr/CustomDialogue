@@ -49,7 +49,7 @@ public class ConversationManager : Singleton<ConversationManager>
         playerMovement.DisablePlayerMovement();
         animator.SetBool("IsOpen", true);
         speaker.sprite = EmotionHelper.GetSpriteOfEmotion(conversation.emotion, conversation.actor);
-        speakerName.text = conversation.actor.name;
+        speakerName.text = conversation.actor.FirstName;
         UpdateInventoryButtons();
         canvasOpen = true;
 

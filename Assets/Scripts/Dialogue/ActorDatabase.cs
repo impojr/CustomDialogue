@@ -15,52 +15,11 @@ public enum ActorList
 
 public static class ActorDatabase
 {
-    public static Actor RECEIVE_ITEM = new Actor
-    {
-        id = ActorList.RECEIVE_ITEM,
-        name = " ",
-        emotions = EmotionSprites.Create("Images/Actors/BlockingGuard")
-    };
-
-    public static Actor PLAYER = new Actor
-    {
-        id = ActorList.PLAYER,
-        name = "Jana",
-        emotions = EmotionSprites.Create("Images/Actors/Player")
-    };
-
-    public static Actor BLOCKING_GUARD = new Actor
-    {
-        id = ActorList.BLOCKING_GUARD,
-        name = "Jeff",
-        emotions = EmotionSprites.Create("Images/Actors/BlockingGuard")
-    };
-
-    public static Actor COP_AT_FRONT_OF_HOUSE = new Actor
-    {
-        id = ActorList.COP_AT_FRONT_OF_HOUSE,
-        name = "Cop",
-        emotions = EmotionSprites.Create("Images/Actors/CopAtFrontOfHouse")
-    };
-
-    public static Actor HOMELESS_MAN = new Actor
-    {
-        id = ActorList.HOMELESS_MAN,
-        name = "Homeless Man",
-        emotions = EmotionSprites.Create("Images/Actors/HomelessMan")
-    };
-
-    public static Actor DETECTIVE = new Actor
-    {
-        id = ActorList.DETECTIVE,
-        name = "Detective",
-        emotions = EmotionSprites.Create("Images/Actors/Detective")
-    };
-
-    public static Actor CORONER = new Actor
-    {
-        id = ActorList.CORONER,
-        name = "Coroner",
-        emotions = EmotionSprites.Create("Images/Actors/Coroner")
-    };
+    public static Actor RECEIVE_ITEM = new Actor(ActorList.RECEIVE_ITEM, "", "", EmotionSprites.Create("Images/Actors/BlockingGuard/AHHH"));
+    public static Actor PLAYER = new Actor(ActorList.PLAYER, "Jana", "S", EmotionSprites.Create("Images/Actors/Player"));
+    public static Actor BLOCKING_GUARD = new Actor(ActorList.BLOCKING_GUARD, "Jeff", "The Guard", EmotionSprites.Create("Images/Actors/BlockingGuard"));
+    public static Actor COP_AT_FRONT_OF_HOUSE = new Actor(ActorList.COP_AT_FRONT_OF_HOUSE, "Cop", "McCop", EmotionSprites.Create("Images/Actors/CopAtFrontOfHouse"));
+    public static Actor HOMELESS_MAN = new Actor(ActorList.HOMELESS_MAN, "Homeless", "Man", EmotionSprites.Create("Images/Actors/HomelessMan"));
+    public static Actor DETECTIVE = new Actor(ActorList.DETECTIVE, "Detective", "LastName", EmotionSprites.Create("Images/Actors/Detective"));
+    public static Actor CORONER = new Actor(ActorList.CORONER, "Coro", "Nerr", EmotionSprites.Create("Images/Actors/Coroner"));
 }

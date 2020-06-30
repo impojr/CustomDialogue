@@ -40,23 +40,23 @@ public static class EmotionHelper
 
         if (emotion == Emotion.IDLE)
         {
-            sprite = actor.emotions.Idle;
+            sprite = actor.Emotions.Idle;
         }
         else if (emotion == Emotion.ANGRY)
         {
-            sprite = actor.emotions.Angry;
+            sprite = actor.Emotions.Angry;
         }
         else if (emotion == Emotion.HAPPY)
         {
-            sprite = actor.emotions.Happy;
+            sprite = actor.Emotions.Happy;
         }
         else if (emotion == Emotion.SAD)
         {
-            sprite = actor.emotions.Sad;
+            sprite = actor.Emotions.Sad;
         }
         else if (emotion == Emotion.SURPRISED)
         {
-            sprite = actor.emotions.Surprised;
+            sprite = actor.Emotions.Surprised;
         }
 
         return sprite;
