@@ -27,7 +27,7 @@ public class DialogueInitializer : Singleton<DialogueInitializer>
         {
             if (actor == ActorDatabase.BLOCKING_GUARD)
             {
-                if (Flags.SHOWN_GUARD_ID)
+                if (FlagManager.Instance.SHOWN_GUARD_ID)
                 {
                     TriggerDialogue(DialogueKeys.SHOWN_ID_TO_GUARD, true);
                 } else

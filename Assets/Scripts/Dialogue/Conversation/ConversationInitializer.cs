@@ -22,7 +22,7 @@ public class ConversationInitializer : Singleton<ConversationInitializer>
             conversationManager.StartConversation(ConversationDatabase.BLOCKING_GUARD);
         } else if (actor == ActorList.DETECTIVE)
         {
-            if (Flags.FIRST_MET_DETECTIVE_CORONER)
+            if (FlagManager.Instance.FIRST_MET_DETECTIVE_CORONER)
             {
                 conversationManager.StartConversation(ConversationDatabase.DETECTIVE);
             } else
@@ -33,7 +33,7 @@ public class ConversationInitializer : Singleton<ConversationInitializer>
         }
         else if (actor == ActorList.CORONER)
         {
-            if (Flags.FIRST_MET_DETECTIVE_CORONER)
+            if (FlagManager.Instance.FIRST_MET_DETECTIVE_CORONER)
             {
                 conversationManager.StartConversation(ConversationDatabase.CORONER);
             }
