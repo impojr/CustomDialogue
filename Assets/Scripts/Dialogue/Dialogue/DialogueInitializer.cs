@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueInitializer : MonoBehaviour
+public class DialogueInitializer : Singleton<DialogueInitializer>
 {
     private DialogueManager dialogueManager;
     public Dictionary<string, Dialogue[]> dialogues;
     // Start is called before the first frame update
     void Start()
     {
-        dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueManager = DialogueManager.Instance;
         DialogueList.InitializeDialogueDictionary();
     }
 

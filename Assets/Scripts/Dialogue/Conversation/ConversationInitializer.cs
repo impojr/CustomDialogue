@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConversationInitializer : MonoBehaviour
+public class ConversationInitializer : Singleton<ConversationInitializer>
 {
     private ConversationManager conversationManager;
     private DialogueInitializer dialogueInitializer;
@@ -10,21 +10,21 @@ public class ConversationInitializer : MonoBehaviour
 
     void Start()
     {
-        conversationManager = FindObjectOfType<ConversationManager>();
-        dialogueInitializer = FindObjectOfType<DialogueInitializer>();
-        ConversationList.InitializeConversations();
+        conversationManager = ConversationManager.Instance;
+        dialogueInitializer = DialogueInitializer.Instance;
+        ConversationDatabase.InitializeConversations();
     }
 
     public void TriggerConversation(ActorList actor)
     {
         if (actor == ActorList.BLOCKING_GUARD)
         {
-            conversationManager.StartConversation(ConversationList.BLOCKING_GUARD);
+            conversationManager.StartConversation(ConversationDatabase.BLOCKING_GUARD);
         } else if (actor == ActorList.DETECTIVE)
         {
             if (Flags.FIRST_MET_DETECTIVE_CORONER)
             {
-                conversationManager.StartConversation(ConversationList.DETECTIVE);
+                conversationManager.StartConversation(ConversationDatabase.DETECTIVE);
             } else
             {
                 dialogueInitializer.TriggerDialogue(DialogueKeys.DETECTIVE_CORONER_INTRO, false);
@@ -35,7 +35,7 @@ public class ConversationInitializer : MonoBehaviour
         {
             if (Flags.FIRST_MET_DETECTIVE_CORONER)
             {
-                conversationManager.StartConversation(ConversationList.CORONER);
+                conversationManager.StartConversation(ConversationDatabase.CORONER);
             }
             else
             {

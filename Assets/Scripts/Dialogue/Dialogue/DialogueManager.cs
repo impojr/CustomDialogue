@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using Cinemachine;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : Singleton<DialogueManager>
 {
     public Animator animator;
     public TextMeshProUGUI nameText;
@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     void Awake()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
-        conversationManager = FindObjectOfType<ConversationManager>();
+        conversationManager = ConversationManager.Instance;
         mainCamera = Camera.main;
         sentences = new Queue<DialogueUI>();
         isTypingSentence = false;
@@ -103,7 +103,7 @@ public class DialogueManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
         if (afterDialogueEvent != AfterEventList.NONE)
         {
-            FindObjectOfType<EventManager>().TriggerEvent(afterDialogueEvent);
+            EventManager.Instance.TriggerEvent(afterDialogueEvent);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ConversationList
+public static class ConversationDatabase
 {
     public static Conversation BLOCKING_GUARD;
     public static Conversation DETECTIVE;

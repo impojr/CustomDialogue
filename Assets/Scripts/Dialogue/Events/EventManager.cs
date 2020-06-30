@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class EventManager : Singleton<EventManager>
 {
     private DialogueInitializer dialogueInitializer;
     private PlayerMovement playerMovement;
 
     void Awake()
     {
-        dialogueInitializer = FindObjectOfType<DialogueInitializer>();
+        dialogueInitializer = DialogueInitializer.Instance;
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
@@ -36,7 +36,7 @@ public class EventManager : MonoBehaviour
     private void SetShownGuardIdToTrue()
     {
         Flags.SHOWN_GUARD_ID = true;
-        ConversationList.BLOCKING_GUARD.textboxes[1] = new TextBox(DialogueKeys.GUARD_SEEN_ANYTHING_ODD);
+        ConversationDatabase.BLOCKING_GUARD.textboxes[1] = new TextBox(DialogueKeys.GUARD_SEEN_ANYTHING_ODD);
     }
 
     private void ShowNoIdDialogueIfNoIdShown()

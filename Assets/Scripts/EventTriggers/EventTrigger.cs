@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventTrigger : MonoBehaviour
+public class EventTrigger : Singleton<EventTrigger>
 {
     public AfterEventList eventToTrigger;
     public TriggerType triggerType;
@@ -13,8 +13,8 @@ public class EventTrigger : MonoBehaviour
 
     void Awake()
     {
-        eventManager = FindObjectOfType<EventManager>();
-        dialogueManager = FindObjectOfType<DialogueManager>();
+        eventManager = EventManager.Instance;
+        dialogueManager = DialogueManager.Instance;
         canTriggerEvent = false;
     }
 
