@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Inventory
 {
-    public static List<Item> items = new List<Item> { ItemList.ID };
+    public static List<Item> items = new List<Item> { ItemDatabase.ID };
 
     public static void AddItem(Item item)
     {
