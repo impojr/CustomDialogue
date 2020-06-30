@@ -3,20 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueInitializer : MonoBehaviour
+public class DialogueInitializer : Singleton<DialogueInitializer>
 {
     private DialogueManager dialogueManager;
     public Dictionary<string, Dialogue[]> dialogues;
     // Start is called before the first frame update
     void Start()
     {
-        dialogueManager = FindObjectOfType<DialogueManager>();
-        DialogueList.InitializeDialogueDictionary();
+        dialogueManager = DialogueManager.Instance;
+        DialogueDatabase.InitializeDialogueDictionary();
     }
 
     public void TriggerDialogue(string key, bool returnToConversation)
     {
-        Dialogue dialogue = DialogueList.dialogues[key];
+        Dialogue dialogue = DialogueDatabase.dialogues[key];
 
         dialogueManager.StartDialogue(dialogue, returnToConversation);
     }
@@ -25,9 +25,9 @@ public class DialogueInitializer : MonoBehaviour
     {
         if (item == ItemList.ID)
         {
-            if (actor == Actor.BLOCKING_GUARD)
+            if (actor == ActorDatabase.BLOCKING_GUARD)
             {
-                if (Flags.SHOWN_GUARD_ID)
+                if (FlagManager.Instance.SHOWN_GUARD_ID)
                 {
                     TriggerDialogue(DialogueKeys.SHOWN_ID_TO_GUARD, true);
                 } else

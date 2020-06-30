@@ -19,7 +19,7 @@ public class DialogueUI
     {
         return new DialogueUI
         {
-            name = actor.name,
+            name = actor.FirstName,
             sentence = sentence,
             image = EmotionHelper.GetSpriteOfEmotion(emotion, actor)
         };

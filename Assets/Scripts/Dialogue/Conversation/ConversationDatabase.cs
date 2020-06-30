@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ConversationList
+public static class ConversationDatabase
 {
     public static Conversation BLOCKING_GUARD;
     public static Conversation DETECTIVE;
@@ -12,21 +12,21 @@ public static class ConversationList
     {
         BLOCKING_GUARD = new Conversation
         {
-            actor = Actor.BLOCKING_GUARD,
+            actor = ActorDatabase.BLOCKING_GUARD,
             emotion = Emotion.IDLE,
             textboxes = new TextBox[] { new TextBox(DialogueKeys.GUARD_HOW_TO_SHOW_ID), null, null, null }
         };
 
         DETECTIVE = new Conversation
         {
-            actor = Actor.DETECTIVE,
+            actor = ActorDatabase.DETECTIVE,
             emotion = Emotion.IDLE,
             textboxes = new TextBox[] { new TextBox(DialogueKeys.GUARD_HOW_TO_SHOW_ID), null, null, null }
         };
 
         CORONER = new Conversation
         {
-            actor = Actor.CORONER,
+            actor = ActorDatabase.CORONER,
             emotion = Emotion.IDLE,
             textboxes = new TextBox[] { new TextBox(DialogueKeys.GUARD_HOW_TO_SHOW_ID), null, null, null }
         };

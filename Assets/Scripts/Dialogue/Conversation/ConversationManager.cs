@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
 
-public class ConversationManager : MonoBehaviour
+public class ConversationManager : Singleton<ConversationManager>
 {
     public Animator animator;
     public bool canvasOpen;
@@ -27,7 +27,7 @@ public class ConversationManager : MonoBehaviour
     void Awake()
     {
         mainCamera = Camera.main;
-        dialogueInitializer = FindObjectOfType<DialogueInitializer>();
+        dialogueInitializer = DialogueInitializer.Instance;
         playerMovement = FindObjectOfType<PlayerMovement>();
         canvasOpen = false;
 
@@ -49,7 +49,7 @@ public class ConversationManager : MonoBehaviour
         playerMovement.DisablePlayerMovement();
         animator.SetBool("IsOpen", true);
         speaker.sprite = EmotionHelper.GetSpriteOfEmotion(conversation.emotion, conversation.actor);
-        speakerName.text = conversation.actor.name;
+        speakerName.text = conversation.actor.FirstName;
         UpdateInventoryButtons();
         canvasOpen = true;
 

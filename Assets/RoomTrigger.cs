@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomTrigger : MonoBehaviour
+public class RoomTrigger : Singleton<RoomTrigger>
 {
     private bool canEnterRoom = false;
     private Transform locationToWarpTo;

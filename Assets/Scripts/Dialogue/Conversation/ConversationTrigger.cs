@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConversationTrigger : MonoBehaviour
+public class ConversationTrigger : Singleton<ConversationTrigger>
 {
     private bool startConversation = false;
     private ActorSelector conversationWith;
@@ -11,7 +11,7 @@ public class ConversationTrigger : MonoBehaviour
 
     void Awake()
     {
-        conversationInitializer = FindObjectOfType<ConversationInitializer>();
+        conversationInitializer = ConversationInitializer.Instance;
         conversationWith = null;
     }
 

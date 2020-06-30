@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class EventManager : Singleton<EventManager>
 {
     private DialogueInitializer dialogueInitializer;
     private PlayerMovement playerMovement;
 
     void Awake()
     {
-        dialogueInitializer = FindObjectOfType<DialogueInitializer>();
+        dialogueInitializer = DialogueInitializer.Instance;
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
@@ -35,13 +35,13 @@ public class EventManager : MonoBehaviour
 
     private void SetShownGuardIdToTrue()
     {
-        Flags.SHOWN_GUARD_ID = true;
-        ConversationList.BLOCKING_GUARD.textboxes[1] = new TextBox(DialogueKeys.GUARD_SEEN_ANYTHING_ODD);
+        FlagManager.Instance.SHOWN_GUARD_ID = true;
+        ConversationDatabase.BLOCKING_GUARD.textboxes[1] = new TextBox(DialogueKeys.GUARD_SEEN_ANYTHING_ODD);
     }
 
     private void ShowNoIdDialogueIfNoIdShown()
     {
-        if (!Flags.SHOWN_GUARD_ID)
+        if (!FlagManager.Instance.SHOWN_GUARD_ID)
         {
             dialogueInitializer.TriggerDialogue(DialogueKeys.WALK_PAST_GUARD_WITHOUT_SHOWING_ID, false);
         }
@@ -72,7 +72,7 @@ public class EventManager : MonoBehaviour
 
     private void SetFirstMetFlagAndGetAutopsyReport()
     {
-        Flags.FIRST_MET_DETECTIVE_CORONER = true;
+        FlagManager.Instance.FIRST_MET_DETECTIVE_CORONER = true;
         Inventory.AddItem(ItemList.PRELIM_AUTOPSY);
     }
 }
