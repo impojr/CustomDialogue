@@ -25,7 +25,7 @@ public class DialogueInitializer : MonoBehaviour
     {
         if (item == ItemList.ID)
         {
-            if (actor == Actor.BLOCKING_GUARD)
+            if (actor == ActorDatabase.BLOCKING_GUARD)
             {
                 if (Flags.SHOWN_GUARD_ID)
                 {
