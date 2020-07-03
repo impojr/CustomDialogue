@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : Singleton<Inventory>
+public class InventoryManager : Singleton<InventoryManager>
 {
     public List<Item> items;
 
     public void Awake()
     {
-        items = new List<Item> { ItemDatabase.ID };
+        ItemDatabase.Initialize();
+        items = new List<Item> { ItemDatabase.GetItem(ItemId.ID) };
     }
     
     public void AddItem(Item item)

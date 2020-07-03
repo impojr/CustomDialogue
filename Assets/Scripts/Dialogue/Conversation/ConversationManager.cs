@@ -99,7 +99,7 @@ public class ConversationManager : Singleton<ConversationManager>
     {
         if (inventoryIndex == 0)
         {
-            inventoryIndex = Inventory.Instance.items.Count - 1;
+            inventoryIndex = InventoryManager.Instance.items.Count - 1;
         } else
         {
             inventoryIndex--;
@@ -110,7 +110,7 @@ public class ConversationManager : Singleton<ConversationManager>
 
     public void MoveInventoryRight()
     {
-        if (inventoryIndex == Inventory.Instance.items.Count - 1)
+        if (inventoryIndex == InventoryManager.Instance.items.Count - 1)
         {
             inventoryIndex = 0;
         }
@@ -124,13 +124,13 @@ public class ConversationManager : Singleton<ConversationManager>
 
     public void UpdateInventoryItem()
     {
-        inventoryItemImage.sprite = Inventory.Instance.items[inventoryIndex].image;
-        inventoryItemName.text = Inventory.Instance.items[inventoryIndex].name;
+        inventoryItemImage.sprite = InventoryManager.Instance.items[inventoryIndex].image;
+        inventoryItemName.text = InventoryManager.Instance.items[inventoryIndex].name;
     }
 
     public void UpdateInventoryButtons()
     {
-        if (Inventory.Instance.items.Count < 2)
+        if (InventoryManager.Instance.items.Count < 2)
         {
             inventoryLeft.interactable = false;
             inventoryRight.interactable = false;
@@ -143,7 +143,7 @@ public class ConversationManager : Singleton<ConversationManager>
 
     public void PresentItem()
     {
-        Item itemToPresent = Inventory.Instance.items[inventoryIndex];
+        Item itemToPresent = InventoryManager.Instance.items[inventoryIndex];
 
         EndConversation();
         dialogueInitializer.TriggerDialogue(lastConversation.actor, itemToPresent);

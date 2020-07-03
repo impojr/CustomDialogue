@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class AreaOfInterest : MonoBehaviour
 {
+    public ItemId itemToPickUp;
+    public string dialogueKey;
+    public string eventToTrigger;
+    public bool destroyOnInteract;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Interact()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (itemToPickUp != ItemId.None)
+        {
+            //InventoryManager.Instance.AddItem();
+        }
     }
 }

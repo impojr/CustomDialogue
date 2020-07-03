@@ -23,7 +23,7 @@ public class DialogueInitializer : Singleton<DialogueInitializer>
 
     public void TriggerDialogue(Actor actor, Item item)
     {
-        if (item == ItemDatabase.ID)
+        if (item == ItemDatabase.GetItem(ItemId.ID))
         {
             if (actor == ActorDatabase.BLOCKING_GUARD)
             {
