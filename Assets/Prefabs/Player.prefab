@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 1650769927117958064}
   - component: {fileID: 1264575607}
   m_Layer: 8
-  m_Name: ConversationTrigger
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
