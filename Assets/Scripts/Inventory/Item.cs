@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Item
 {
+    public ItemId id;
     public string name;
     public Sprite image;
     public string description;
 
-    public static Item CreateItem(string _name, string _description, string nameInResourcesFolder)
+    public Item(ItemId id, string name, string description, string nameInResourcesFolder)
     {
-        return new Item
-        {
-            name = _name,
-            description = _description,
-            image = Resources.Load<Sprite>("Images/Items/" + nameInResourcesFolder)
-        };
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        image = Resources.Load<Sprite>("Images/Items/" + nameInResourcesFolder);
     }
 }

@@ -73,6 +73,6 @@ public class EventManager : Singleton<EventManager>
     private void SetFirstMetFlagAndGetAutopsyReport()
     {
         FlagManager.Instance.FIRST_MET_DETECTIVE_CORONER = true;
-        Inventory.AddItem(ItemDatabase.PRELIM_AUTOPSY);
+        Inventory.Instance.AddItem(ItemDatabase.PRELIM_AUTOPSY);
     }
 }

@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Inventory
+public class Inventory : Singleton<Inventory>
 {
-    public static List<Item> items = new List<Item> { ItemDatabase.ID };
+    public List<Item> items;
 
-    public static void AddItem(Item item)
+    public void Awake()
+    {
+        items = new List<Item> { ItemDatabase.ID };
+    }
+    
+    public void AddItem(Item item)
     {
         items.Add(item);
     }
 
-    public static void RemoveItem(Item item)
+    public void RemoveItem(Item item)
     {
         items.Remove(item);
     }
