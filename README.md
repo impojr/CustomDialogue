@@ -64,3 +64,19 @@ For the `ConversationTrigger` to work correctly, it looks for a class called `Ac
 #### DialogueKeys
 
 The `DialogueKey` class is a static class of keys. These are defined for use in the `DialogueList` and `ConversationList` classes, to ensure the values are always equal. The `Conversation` object's array of TextBoxes has it's text value equal to a dialogue key. This is so it can be displayed to the user, and if clicked on, that key can be used to show the correct dialogue.
+
+## Inventory
+
+The inventory is a class that holds the player's current items. These can be presented to NPCs to trigger events and dialogue.
+
+### Item Database
+
+The Item Database is a static class that contains a list of all items that can be placed in the inventory.
+
+## Areas of Interest
+
+Areas Of Interest are objects within the scene the player can interact with. They contain an item the player can pick up, and mandatory dialogue that can play. The AOI can also be destroyed after interaction.
+
+### Area Of Interest Trigger
+
+The `AreaOfInterestTrigger` triggers the player's response when interacting with an area of interest. Area's of Interest need to be tagged as `AreasOfInterest` for the collider to detect them.
