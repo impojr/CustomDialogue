@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 public static class DialogueDatabase
 {
@@ -14,6 +15,7 @@ public static class DialogueDatabase
         GuardSeenAnythingOddDialogue();
         HomelessManConversationDialogue();
         DetectiveCoronerIntro();
+        BoxInteractDialogue();
     }
 
     private static void HowToShowGuardIdDialogue()
@@ -106,5 +108,16 @@ public static class DialogueDatabase
         dialogue.EventAfterID = AfterEventList.FIRST_MET_DETECTIVE_CORONER;
         dialogue.dialogue = dialogueUI;
         dialogues.Add(DialogueKeys.DETECTIVE_CORONER_INTRO, dialogue);
+    }
+
+    private static void BoxInteractDialogue()
+    {
+        Dialogue dialogue = new Dialogue();
+        DialogueUI[] dialogueUI = new DialogueUI[2];
+        dialogueUI[0] = DialogueUI.Create(ActorDatabase.PLAYER, "Oh look it's a box.", Emotion.IDLE);
+        dialogueUI[1] = DialogueUI.Create(ActorDatabase.PLAYER, "Yes, I'll take that.", Emotion.HAPPY);
+        dialogue.EventAfterID = AfterEventList.NONE;
+        dialogue.dialogue = dialogueUI;
+        dialogues.Add(DialogueKeys.ITEM_BOX, dialogue);
     }
 }

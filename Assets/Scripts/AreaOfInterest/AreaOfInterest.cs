@@ -6,14 +6,22 @@ public class AreaOfInterest : MonoBehaviour
 {
     public ItemId itemToPickUp;
     public string dialogueKey;
-    public string eventToTrigger;
     public bool destroyOnInteract;
 
-    public void Interact()
+    public bool Interact()
     {
         if (itemToPickUp != ItemId.None)
         {
-            //InventoryManager.Instance.AddItem();
+            InventoryManager.Instance.AddItem(itemToPickUp);
         }
+
+        DialogueInitializer.Instance.TriggerDialogue(dialogueKey, false);
+
+        if (destroyOnInteract)
+        {
+            Destroy(gameObject);
+        }
+
+        return destroyOnInteract;
     }
 }

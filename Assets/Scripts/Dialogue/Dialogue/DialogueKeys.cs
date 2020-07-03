@@ -11,4 +11,5 @@ public static class DialogueKeys
     public static string GUARD_SEEN_ANYTHING_ODD = "Seen anything odd?";
     public static string HOMELESS_MAN_CONVERSATION = "Homeless Man Conversation";
     public static string DETECTIVE_CORONER_INTRO = "Detective Coroner Intro";
+    public static string ITEM_BOX = "Box item";
 }

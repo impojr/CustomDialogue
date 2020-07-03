@@ -4,15 +4,50 @@ using UnityEngine;
 
 public class AreaOfInterestTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool startInteraction = false;
+    private AreaOfInterest interactWith;
+
+    private ConversationInitializer conversationInitializer;
+
+    private void Awake()
     {
-        
+        conversationInitializer = ConversationInitializer.Instance;
+        interactWith = null;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (startInteraction && Input.GetKeyDown(KeyCode.Space))
+        {
+            var objectWasDestroyed = interactWith.Interact();
+            
+            if (objectWasDestroyed)
+            {
+                RemoveObjectReferences();
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "AreaOfInterest")
+        {
+            startInteraction = true;
+            interactWith = other.gameObject.GetComponent<AreaOfInterest>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "AreaOfInterest")
+        {
+            RemoveObjectReferences();
+        }
+    }
+
+    private void RemoveObjectReferences()
+    {
+        startInteraction = false;
+        interactWith = null;
     }
 }
