@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    public DialogueUI[] dialogue;
+    public List<DialogueUI> dialogue;
     public AfterEventList EventAfterID;
 }
 
