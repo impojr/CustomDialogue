@@ -35,6 +35,16 @@ public class DialogueInitializer : Singleton<DialogueInitializer>
                     TriggerDialogue(DialogueKeys.GUARD_SHOWING_ID, true);
                 }
             }
+            return;
+        } 
+
+        if (item == ItemDatabase.GetItem(ItemId.Box))
+        {
+            if (actor == ActorDatabase.BLOCKING_GUARD)
+            {
+                TriggerDialogue(DialogueKeys.WHAT_A_LOVELY_BOX, true);
+            }
+            return;
         }
     }
 }

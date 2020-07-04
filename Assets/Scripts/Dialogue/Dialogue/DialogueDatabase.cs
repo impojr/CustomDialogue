@@ -16,6 +16,7 @@ public static class DialogueDatabase
         HomelessManConversationDialogue();
         DetectiveCoronerIntro();
         BoxInteractDialogue();
+        WhatALovelyBoxDialogue();
     }
 
     private static void HowToShowGuardIdDialogue()
@@ -118,5 +119,16 @@ public static class DialogueDatabase
         dialogue.EventAfterID = AfterEventList.NONE;
         dialogue.dialogue = dialogueUI;
         dialogues.Add(DialogueKeys.ITEM_BOX, dialogue);
+    }
+
+    private static void WhatALovelyBoxDialogue()
+    {
+        Dialogue dialogue = new Dialogue();
+        List<DialogueUI> dialogueUI = new List<DialogueUI>();
+        dialogueUI.Add(DialogueUI.Create(ActorDatabase.BLOCKING_GUARD, "Oh, what a lovely box you have.", Emotion.HAPPY));
+        dialogueUI.Add(DialogueUI.Create(ActorDatabase.BLOCKING_GUARD, "... Oh, I'm sorry. That didn't come out right.", Emotion.SURPRISED));
+        dialogue.EventAfterID = AfterEventList.NONE;
+        dialogue.dialogue = dialogueUI;
+        dialogues.Add(DialogueKeys.WHAT_A_LOVELY_BOX, dialogue);
     }
 }
