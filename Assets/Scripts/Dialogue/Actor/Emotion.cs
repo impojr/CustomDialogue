@@ -10,16 +10,13 @@ public class EmotionSprites
     public Sprite Sad;
     public Sprite Angry;
 
-    public static EmotionSprites Create(string resourceLocation)
+    public EmotionSprites(string resourceLocation)
     {
-        return new EmotionSprites
-        {
-            Idle = Resources.Load<Sprite>(resourceLocation + "/Idle"),
-            Happy = Resources.Load<Sprite>(resourceLocation + "/Happy"),
-            Surprised = Resources.Load<Sprite>(resourceLocation + "/Surprised"),
-            Sad = Resources.Load<Sprite>(resourceLocation + "/Sad"),
-            Angry = Resources.Load<Sprite>(resourceLocation + "/Angry")
-        };
+        Idle = Resources.Load<Sprite>(resourceLocation + "/Idle");
+        Happy = Resources.Load<Sprite>(resourceLocation + "/Happy");
+        Surprised = Resources.Load<Sprite>(resourceLocation + "/Surprised");
+        Sad = Resources.Load<Sprite>(resourceLocation + "/Sad");
+        Angry = Resources.Load<Sprite>(resourceLocation + "/Angry");
     }
 }
 
