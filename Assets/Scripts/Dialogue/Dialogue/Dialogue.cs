@@ -15,13 +15,10 @@ public class DialogueUI
     public string sentence;
     public Sprite image;
 
-    public static DialogueUI Create(Actor actor, string sentence, Emotion emotion)
+    public DialogueUI(Actor actor, string sentence, Emotion emotion)
     {
-        return new DialogueUI
-        {
-            name = actor.FirstName,
-            sentence = sentence,
-            image = EmotionHelper.GetSpriteOfEmotion(emotion, actor)
-        };
+        name = actor.FirstName;
+        this.sentence = sentence;
+        image = EmotionHelper.GetSpriteOfEmotion(emotion, actor);
     }
 }
